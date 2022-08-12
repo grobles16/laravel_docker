@@ -1,7 +1,7 @@
 # Laravel - Docker
 
 ## Instalación
-Despues de crear tu proyecto laravel debes hacer unos ajustes primero
+Despues de crear tu proyecto laravel debes hacer unos ajustes primero y tener instalado docker-compose
 1. En tu archivo .env debes hacer asignar el nombre de la BD, usuario, contraseña
 ```bash
   DB_CONNECTION=mysql
@@ -35,4 +35,17 @@ Despues de crear tu proyecto laravel debes hacer unos ajustes primero
 7. Generar una clave de aplicación única
 ```bash
   docker-compose exec app php artisan key:generate
+```
+## Información opcional 
+* Si desea pausar su entorno Docker Compose mientras mantiene el estado de todos sus servicios, ejecute:
+```bash
+  docker-compose pause
+```
+* Renudar servicios
+```bash
+  docker-compose unpause
+```
+* Para cerrar entorno Docker
+```bash
+  docker-compose down
 ```
