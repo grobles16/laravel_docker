@@ -1,6 +1,6 @@
 # Laravel - Docker
 
-# Instalación
+## Instalación
 Despues de crear tu proyecto laravel debes hacer unos ajustes primero
 1. En tu archivo .env debes hacer asignar el nombre de la BD, usuario, contraseña
 ```bash
