@@ -10,6 +10,10 @@ Despues de crear tu proyecto laravel debes hacer unos ajustes primero
   DB_DATABASE=laravel
   DB_USERNAME=laravel
   DB_PASSWORD=laravel
-
+  
+  
+  
+  
+  Hola mundo
    ```sh
    ```
