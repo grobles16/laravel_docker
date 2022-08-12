@@ -12,10 +12,4 @@ Despues de crear tu proyecto laravel debes hacer unos ajustes primero
   DB_PASSWORD=laravel
 
    ```sh
-  DB_CONNECTION=mysql
-  DB_HOST=mysql
-  DB_PORT=3306
-  DB_DATABASE=laravel
-  DB_USERNAME=laravel
-  DB_PASSWORD=laravel
    ```
