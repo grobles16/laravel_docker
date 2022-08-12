@@ -23,7 +23,16 @@ Despues de crear tu proyecto laravel debes hacer unos ajustes primero
 ```bash
   docker-compose ps
 ```
-5. Despues de ejecutar el paso 3 nuestros contenedores ya se encuentran activos, pero aún necesitamos ejecutar un par de comandos para terminar de configurar nuestra aplicación. Puede usar el docker-compose execcomando para ejecutar comandos en los contenedores de servicios, como ls -lpara mostrar información detallada sobre los archivos en el directorio de nuestra aplicación:
+5. Despues de ejecutar el paso 3 nuestros contenedores ya se encuentran activos, pero aún necesitamos ejecutar un par de comandos para terminar de configurar nuestra aplicación. Puede usar el docker-compose exec comando para ejecutar comandos en los contenedores de servicios, como ls -l para mostrar información detallada sobre los archivos en el directorio de nuestra aplicación:
 ```bash
   docker-compose exec app ls -l
+```
+6. Ahora ejecutamos composer install para instalar las dependencias de la aplicación:
+```bash
+  docker-compose exec app rm -rf vendor composer.lock
+  docker-compose exec app composer install
+```
+7. Generar una clave de aplicación única
+```bash
+  docker-compose exec app php artisan key:generate
 ```
