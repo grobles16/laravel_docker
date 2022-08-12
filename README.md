@@ -11,17 +11,12 @@ Despues de crear tu proyecto laravel debes hacer unos ajustes primero
   DB_USERNAME=laravel
   DB_PASSWORD=laravel
 ```
-2. Una vez hecho los cambios en tu archivo .env, ejecuta el siguiente comando
+
+2. Una vez hecho los cambios en tu archivo .env, ejecuta el siguiente comando, este nos permitira crear nuestros contenedores
 ```bash
   docker-compose build app
 ```
-
-  
-
-  
-  
-  
-  
-  Hola mundo
-   ```sh
-   ```
+3. Enciende los containers y la red
+```bash
+  docker-compose up -d
+```
