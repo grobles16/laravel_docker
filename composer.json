@@ -1,0 +1,33 @@
+{
+    "name": "grobles16/laravel-docker",
+    "description": "A laravel and docker extension for easy installation",
+    "type": "library",
+    "require": {},
+    "require-dev": {
+        "php": "^7.4",
+        "phpunit/phpunit": "9.5.x-dev"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gabriel Robles",
+            "email": "aram.roco@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Grobles16\\LaravelDocker\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Grobles16\\LaravelDocker\\LaravelDockerProvider"
+            ],
+            "aliases": {
+                "Debugbar": "Grobles16\\LaravelDocker\\Facade"
+            }
+        }
+    },
+    "minimum-stability": "stable"
+}
