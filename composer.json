@@ -1,7 +1,6 @@
 {
     "name": "grobles16/laravel-docker",
     "description": "A laravel and docker extension for easy installation",
-    "type": "library",
     "require": {},
     "license": "MIT",
     "authors": [
@@ -31,5 +30,6 @@
             }
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
