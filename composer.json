@@ -3,10 +3,6 @@
     "description": "A laravel and docker extension for easy installation",
     "type": "library",
     "require": {},
-    "require-dev": {
-        "php": "^7.0",
-        "phpunit/phpunit": "9.5.x-dev"
-    },
     "license": "MIT",
     "authors": [
         {
