@@ -19,6 +19,12 @@
             "Grobles16\\LaravelDocker\\": "src/"
         }
     },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/grobles16/laravel_docker.git"
+        }
+    ],
     "extra": {
         "laravel": {
             "providers": [
@@ -29,5 +35,6 @@
             }
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev",
+    "prefer-stable" : true
 }
