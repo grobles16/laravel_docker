@@ -48,14 +48,18 @@ docker-compose exec app ls -l
 ```bash
 docker-compose exec app chown -R www-data: /var/www
 ```
-7. Ahora ejecutamos composer install para instalar las dependencias de la aplicación:
+7. Now we run "composer install" to install the app dependencies:
 ```bash
 docker-compose exec app rm -rf vendor composer.lock
 docker-compose exec app composer install
 ```
-8. Generar una clave de aplicación única
+8. Generate a unique app key
 ```bash
 docker-compose exec app php artisan key:generate
+```
+9. Go to the browser and put the following
+```bash
+localhost:8000
 ```
 ## Optional information
 * If you want to pause your Docker Compose environment while maintaining the state of all your services, run:
