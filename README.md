@@ -1,7 +1,24 @@
 # Laravel - Docker
 
-## Instalación
-Despues de crear tu proyecto laravel debes hacer unos ajustes primero y tener instalado docker-compose
+## Install
+After creating your laravel project you need to do some configuration first and have docker-compose installed
+1. Install package
+```bash
+composer require grobles16/laravel-docker
+```
+2. To detect the routes file it is necessary to add the following code in config / app.php
+```bash
+'providers' => [
+   Grobles16\LaravelDocker\LaravelDockerProvider::class,
+],
+```
+3. Publish files in our root folder
+```bash
+php artisan vendor:publish --provider="Grobles16\LaravelDocker\LaravelDockerProvider" --tag=laravel-docker --force
+```
+
+## Docker settings
+
 1. En tu archivo .env debes hacer asignar el nombre de la BD, usuario, contraseña
 ```bash
 DB_CONNECTION=mysql
