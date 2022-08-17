@@ -1,51 +1,76 @@
 # Laravel - Docker
 
-## Instalación
-Despues de crear tu proyecto laravel debes hacer unos ajustes primero y tener instalado docker-compose
-1. En tu archivo .env debes hacer asignar el nombre de la BD, usuario, contraseña
+## Install
+After creating your laravel project you need to do some configuration first and have docker-compose installed
+1. Install package
 ```bash
-  DB_CONNECTION=mysql
-  DB_HOST=mysql
-  DB_PORT=3306
-  DB_DATABASE=laravel
-  DB_USERNAME=laravel
-  DB_PASSWORD=laravel
+composer require grobles16/laravel-docker
 ```
-2. Una vez hecho los cambios en tu archivo .env, ejecuta el siguiente comando, este nos permitira crear nuestros contenedores:
+2. To detect the routes file it is necessary to add the following code in config / app.php
 ```bash
-  docker-compose build app
+'providers' => [
+   Grobles16\LaravelDocker\LaravelDockerProvider::class,
+],
 ```
-3. Enciende los containers y la red:
+3. Publish files in our root folder
 ```bash
-  docker-compose up -d
+php artisan vendor:publish --provider="Grobles16\LaravelDocker\LaravelDockerProvider" --tag=laravel-docker --force
 ```
-4. Para mostrar información sobre el estado de tus servicios activos, ejecuta:
+
+## Docker settings
+
+1. Edit the .env file assign the name of the DB, user, password
 ```bash
-  docker-compose ps
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=laravel
+DB_PASSWORD=laravel
 ```
-5. Despues de ejecutar el paso 3 nuestros contenedores ya se encuentran activos, pero aún necesitamos ejecutar un par de comandos para terminar de configurar nuestra aplicación. Puede usar el docker-compose exec comando para ejecutar comandos en los contenedores de servicios, como ls -l para mostrar información detallada sobre los archivos en el directorio de nuestra aplicación:
+2. Once the changes have been made in the .env file, execute the following command, this will allow us to create our containers:
 ```bash
-  docker-compose exec app ls -l
+docker-compose build app
 ```
-6. Ahora ejecutamos composer install para instalar las dependencias de la aplicación:
+3. Turn on the containers and the network:
 ```bash
-  docker-compose exec app rm -rf vendor composer.lock
-  docker-compose exec app composer install
+docker-compose up -d
 ```
-7. Generar una clave de aplicación única
+4. To display information about the status of active services, run:
 ```bash
-  docker-compose exec app php artisan key:generate
+docker-compose ps
 ```
-## Información opcional 
-* Si desea pausar su entorno Docker Compose mientras mantiene el estado de todos sus servicios, ejecute:
+5. After executing step 3 our containers are already up, but we still need to run a couple of commands to finish configuring our application. You can use the docker-compose exec command to run commands on service containers, such as ls -l to display detailed information about the files in our application directory:
 ```bash
-  docker-compose pause
+docker-compose exec app ls -l
 ```
-* Renudar servicios
+6. If necessary, run the following command to assign permissions to our project
 ```bash
-  docker-compose unpause
+docker-compose exec app chown -R www-data: /var/www
 ```
-* Para cerrar entorno Docker
+7. Now we run "composer install" to install the app dependencies:
 ```bash
-  docker-compose down
+docker-compose exec app rm -rf vendor composer.lock
+docker-compose exec app composer install
+```
+8. Generate a unique app key
+```bash
+docker-compose exec app php artisan key:generate
+```
+9. Go to the browser and put the following
+```bash
+localhost:8000
+```
+## Optional information
+* If you want to pause your Docker Compose environment while maintaining the state of all your services, run:
+```bash
+docker-compose pause
+```
+* Resume services
+```bash
+docker-compose unpause
+```
+* To shut down the Docker environment
+```bash
+docker-compose down
 ```
