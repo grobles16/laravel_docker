@@ -1,17 +1,21 @@
 version: "3.3"
 services:
   mysql:
-    image: 'mysql/mysql-server:8.0'
+    image: mariadb:10.6
     container_name: mysql-db
+    restart: unless-stopped
+    tty: true
     environment:
-      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
-      MYSQL_ROOT_HOST: "%"
       MYSQL_DATABASE: '${DB_DATABASE}'
       MYSQL_USER: '${DB_USERNAME}'
       MYSQL_PASSWORD: '${DB_PASSWORD}'
-      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
     volumes:
       - ./docker-compose/mysql:/var/lib/mysql
+    ports:
+      - 33069:3306
     networks:
     - laravel 
 
